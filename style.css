@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: radial-gradient(circle, #0f172a, #020617);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 25px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+}
+
+h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.glass {
+    backdrop-filter: blur(16px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.product img {
+    width: 100%;
+    height: 160px;
+    border-radius: 18px 18px 0 0;
+    object-fit: cover;
+}
+
+.product-content {
+    padding: 16px;
+}
+
+.product h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.price {
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: white;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.glass h2 {
+    margin-bottom: 16px;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.cart-info h4 {
+    font-size: 15px;
+}
+
+.cart-info p {
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+.qty-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.qty-controls button {
+    padding: 4px 8px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+}
+
+.total {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.circle {
+    background-color: #9659F5;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    position: fixed;
+    right: -400px;
+}
