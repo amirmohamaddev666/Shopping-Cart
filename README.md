@@ -1,2 +1,17 @@
-# Shopping-Cart
-A simple and modern shopping cart built using HTML, CSS, and JavaScript. It features a clean glass-style UI, responsive design, and basic cart functionality like adding items, updating quantities, and real-time total calculation.
+# 🛒 Shopping Cart
+
+A modern shopping cart built with HTML, CSS, and JavaScript.
+
+## ✨ Features
+- Add products to cart
+- Increase / decrease quantity
+- Real-time total price
+- LocalStorage support
+
+## 🛠 Tech Stack
+- HTML
+- CSS
+- JavaScript
+
+## 📸 Preview
+![Preview](Images/preview.png)
