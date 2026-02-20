@@ -8,42 +8,46 @@ const products = [
         id: 1,
         name: "SHOES 1",
         price: 86,
-        iamge: "Images/shoes-1.png"
+        image: "Images/shoes-1.png"
     },
     {
         id: 2,
         name: "SHOES 2",
         price: 123,
-        iamge: "Images/shoes-2.png"
+        image: "Images/shoes-2.png"
     },
     {
         id: 3,
         name: "SHOES 3",
         price: 130,
-        iamge: "Images/shoes-3.png"
+        image: "Images/shoes-3.png"
     },
     {
         id: 4,
         name: "SHOES 4",
         price: 150,
-        iamge: "Images/shoes-4.png"
+        image: "Images/shoes-4.png"
     },
     {
         id: 5,
         name: "SHOES 5",
         price: 200,
-        iamge: "Images/shoes-5.png"
+        image: "Images/shoes-5.png"
     },
 ]
 
-let cart = []
+let cart = JSON.parse(localStorage.getItem("cart")) || []
+
+const saveCart = () => {
+    localStorage.setItem("cart", JSON.stringify(cart))
+}
 
 const renderProducts = () => {
     productsContainer.innerHTML = ""
     products.forEach((p, index) => {
         productsContainer.innerHTML += `
         <div class="glass product">
-            <img src="${p.iamge}" />
+            <img src="${p.image}" />
             <div class="product-content">
                 <h3>${p.name}</h3>
                 <p class="price">$ ${p.price}</p>
@@ -63,6 +67,7 @@ const addToCart = (id) => {
     else {
         cart.push({...item, qty: 1})
     }
+    saveCart()
     renderCart()
 }
 
@@ -88,7 +93,7 @@ const renderCart = () => {
 }
 
 const changeQty = (id, delta) => {
-    const item = cart.find(c => c.id === id);
+    const item = cart.find(c => c.id === id)
     if (!item) {
         return
     }
@@ -99,7 +104,8 @@ const changeQty = (id, delta) => {
         cart = cart.filter(c => c.id !== id)
     }
 
-    renderCart();
+    saveCart()
+    renderCart()
 }
 
 checkOut.addEventListener("click", () => {
@@ -108,8 +114,10 @@ checkOut.addEventListener("click", () => {
     }
     alert("Order placed successfully!")
     cart = []
+    saveCart()
     renderCart()
 
 })
 
 renderProducts()
+renderCart()
